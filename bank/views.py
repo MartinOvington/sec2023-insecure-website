@@ -44,7 +44,14 @@ def messages(request):
         response += f'<li>{msg}</li>'
     response += '</ul>'
     return HttpResponse(response)
-    # return render(request, 'bank/messages.html', {'messages': found_messages})
+
+
+"""
+def messages(request):
+    found_messages = [
+        msg.message for msg in Message.objects.filter(user=request.user)]
+    return render(request, 'bank/messages.html', {'messages': found_messages})
+"""
 
 
 def send_message(request):
