@@ -28,7 +28,6 @@ def send_money(request):
     receiver = request.GET.get('receiver', '')
     if request.method == 'POST':
         sender = request.user
-        print(request.POST.get('amount'))
         amount = int(request.POST.get('amount'))
         receiver_obj = User.objects.filter(username=receiver).first()
         transfer(sender, receiver_obj, amount)
