@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Super Bank</title>
+  </head>
+  <body>
+    <h1>Send message to {{ receiver }}</h1>
+    <form action="" method="POST">
+      {% csrf_token %} <input type="text" name="message" />
+      <input type="submit" value="Send" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Super Bank</title>
+  </head>
+  <body>
+    <h1>Super Bank</h1>
+    {% if user.is_authenticated %}
+    <div>
+      <p>Welcome {{ user.username }}</p>
+      <button
+        onclick="window.location.href='/balance/?user={{user.username}}';"
+      >
+        View balance
+      </button>
+      <button onclick="window.location.href='/messages';">View messages</button>
+      <form action="logout/" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout" />
+      </form>
+    </div>
+    <h2>Other accounts:</h2>
+    {% for account in accounts %}
+    <ul>
+      <li>
+        {{ account.owner }}
+        <button
+          onclick="window.location.href='/send_money/?receiver={{account.owner}}';"
+        >
+          Send Money
+        </button>
+        <button
+          onclick="window.location.href='/send_message/?receiver={{account.owner}}';"
+        >
+          Message
+        </button>
+      </li>
+    </ul>
+    {% endfor%} {% else %}
+    <a href="login/">Login</a>
+    {% endif %}
+  </body>
+</html>
