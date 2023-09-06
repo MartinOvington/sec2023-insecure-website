@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db import transaction
 from django.http import HttpResponse, HttpResponseNotFound
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
@@ -63,6 +64,7 @@ def send_message(request):
     return render(request, 'bank/send_message.html', {'receiver': receiver})
 
 
+# @transaction.atomic#
 def transfer(sender, receiver, amount):
     acc1 = Account.objects.get(owner=sender)
     acc2 = Account.objects.get(owner=receiver)
