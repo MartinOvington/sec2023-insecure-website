@@ -2,7 +2,7 @@
 
 ## Installation instructions
 
-1. After cloning the repository, install the Python packages in requirements.txt (preferable in a virtual environment):
+1. After cloning the repository, install the Python packages in requirements.txt (preferably in a virtual environment):
 
 ```
 pip install -r requirements.txt
