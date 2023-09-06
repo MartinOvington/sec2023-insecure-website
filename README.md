@@ -8,10 +8,9 @@
 pip install -r requirements.txt
 ```
 
-2. Create the migrations and use them to create the website database file:
+2. Create create the website database file:
 
 ```
-py manage.py makemigrations
 py manage.py migrate
 ```
 
