@@ -24,6 +24,16 @@ def balance(request):
     return HttpResponseNotFound('<h1>Account not found</h1>')
 
 
+"""
+@login_required
+def balance(request):
+    account = Account.objects.filter(owner=request.user).first()
+    if account:
+        return render(request, 'bank/balance.html', {'account': account})
+    return HttpResponseNotFound('<h1>Account not found</h1>')
+"""
+
+
 @csrf_exempt
 def send_money(request):
     receiver = request.GET.get('receiver', '')
